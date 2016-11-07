@@ -1,2 +1,3 @@
 # about_me
-Practice with repositories for beginners ( ie. Me)
+modify this file for Practice!
+note: remember that Atom uses VI so you may be in command mode, use 'i' to change into insert mode to edit the text.
