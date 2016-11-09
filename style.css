@@ -1,3 +1,36 @@
-body{
-  background-color: #FDD;
+body {
+  background-color: #7fbc3e;
+
 }
+main {
+  background-color: #7eb31f;
+  width: 500px;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  display: block;
+
+}
+
+
+p {
+}
+
+
+/* the format of the followsig <a> selector is borrowed from csszengarden demo,
+ having used these selectors with familiarity in the past*/0
+
+a:link {
+	font-weight: bold;
+	text-decoration: none;
+	color: #B7A5DF;
+	}
+a:visited {
+	font-weight: bold;
+	text-decoration: none;
+	color: #D4CDDC;
+	}
+a:hover, a:focus, a:active {
+	text-decoration: underline;
+	color: #9685BA;
+	}
