@@ -10,6 +10,21 @@ if(var .toLowerCase() === 'yes' || var  .toLowerCase() === 'y'){
   console.log('The User did not enter a valid \"yes\" or \"no\" answer');
 }
 */
+
+// var ynquestions = [];
+// var ynanswers = [];
+// var userguesses = [];
+//
+//
+var randmNum = '';
+var guessRandm = '';
+//
+//
+// var numCorrect = '0';
+// var numWrong = '0';
+//var numOfGuesses = '0';
+
+//var score = '';
 function numberGame () {
   //guess a number game!
   randmNum = Math.floor(Math.random() * 10); //generates a random number between 0-9
@@ -32,21 +47,6 @@ function numberGame () {
   }
 }
 numberGame ();
-// var ynquestions = [];
-// var ynanswers = [];
-// var userguesses = [];
-//
-//
-// var randmNum = '';
-// var guessRandm = '';
-//
-//
-// var numCorrect = '0';
-// var numWrong = '0';
-//var numOfGuesses = '0';
-
-//var score = '';
-
 
 
 //start with 5 yes or no QUESTIONS
@@ -127,29 +127,34 @@ numberGame ();
 //   }
 // }
 //
-// // question seven//
-// var isCorrect = false;
-// var possibleAnswers = [ 'mars', 'europa', 'titan', 'io' , 'iss' ];
-// alert('There are FIVE celestial bodies in our solar system where the bountry for Harlock is so high \n in order to avoid having to payout, Harlock has his own official Sol Law Enforcement standing Shoot-On-Sight and Shoot-To-Kill order.\n This includes moons, planets, dwarf planets, asteroids, and artificial satelites, can you guess one of them? \n You get 5 guesses, click OK to start');
-//
-// var f = 0;  //you get 6 tries
-// do{
-//   f++;
-//   var guessWHere = prompt('What is your guess? \n ex: Earth, Luna, Jupiter').toLowerCase();
-//   for (var j = 0; j < possibleAnswers.length ; j++){
-//     if ( guessWHere === possibleAnswers[j] ){
-//       alert('THATS RIGHT! \n You Win!\n It took you' + f + 'tries');
-//       isCorrect = true;
-//       break;
-//     } else{
-//       console.log('position in array of answers: ' + j );
-//     }
-//     if (isCorrect === false){
-//       alert('Sorry, try again \n you have ' + (6 - f) + ' tries remining');
-//     }
-//     if( f === 6){
-//       isCorrect = true;
-//     }
-//   }
-// }
-// while ( isCorrect === flase);
+// question seven//
+function questionSeven () {
+  var isCorrect = false;
+  var possibleAnswers = [ 'mars', 'europa', 'titan', 'io' , 'iss' ];
+  alert('There are FIVE celestial bodies in our solar system where the bountry for Harlock is so high \n in order to avoid having to payout, Harlock has his own official Sol Law Enforcement standing Shoot-On-Sight and Shoot-To-Kill order.\n This includes moons, planets, dwarf planets, asteroids, and artificial satelites, can you guess one of them? \n You get 5 guesses, click OK to start');
+
+  var f = 0;  //you get 6 tries
+  do{
+    f++;
+    var guessWHere = prompt('What is your guess? \n ex: Earth, Luna, Jupiter').toLowerCase();
+    for (var j = 0; j < possibleAnswers.length ; j++){
+      if ( guessWHere === possibleAnswers[j] ){
+        alert('THATS RIGHT! \n You Win!\n It took you' + f + 'tries');
+        isCorrect = true;
+        break;
+      } else{
+        console.log('position in array of answers: ' + j );
+      }
+      if (isCorrect === false){
+        alert('Sorry, try again \n you have ' + (6 - f) + ' tries remining');
+      }
+      if( f === 6){
+        isCorrect = true;
+      }
+    }
+  }
+  while ( isCorrect);
+
+}
+
+questionSeven () ;
