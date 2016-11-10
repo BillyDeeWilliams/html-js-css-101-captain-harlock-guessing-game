@@ -1,15 +1,5 @@
 'use strict';
 
-var seeMyArt = ' ';
-var likeMyArt = ' ';
-var musicToo = '';
-var listenToChance = '';
-
-var nameQuestionAnsw = prompt('What is your namne?');
-console.log('First questions answered with: ' + nameQuestionAnsw + ', and stored in variable \'nameQuestionAnsw\'');
-alert('Hey ' + nameQuestionAnsw + '! You Win at being awesome!\n And now its time for some yes or no QUESTIONS!!!!! \n \(please answer each question yes or no\)');
-alert('The left says \"yes\" and the right says \"no\" \nI\'m in between and the more I learn Well the less that I know.\n --Dennis DeYoung (Styx). Borrowed Time');
-
 /*
 prototype of yes no check
 if(var .toLowerCase() === 'yes' || var  .toLowerCase() === 'y'){
@@ -21,61 +11,124 @@ if(var .toLowerCase() === 'yes' || var  .toLowerCase() === 'y'){
 }
 */
 
-var likeArt = prompt('Do you like art?');
+var ynquestions = [];
+var ynanswers = [];
+var userguesses = [];
 
-if( likeArt.toLowerCase() === 'yes' || likeArt.toLowerCase() === 'y'){
-  console.log('likeArt is currently: ' + likeArt );
-  seeMyArt = prompt('Scienists have linked intelligence with enjoying art! \n Would you like to visit my Tumblr portfolio ' + nameQuestionAnsw + '?');
-}else if( likeArt.toLowerCase() === 'no' || likeArt.toLowerCase() === 'n'){
-  console.log('likeArt is currently: ' + likeArt );
-  musicToo = prompt('What about music? Do you like music?');
-}else{
-  console.log('The User did not enter a valid \"yes\" or \"no\" answer; likeArt is currently: ' + likeArt );
-  alert('That is not a yes or no answer');
-  seeMyArt = prompt('Scienists have linked intelligence with enjoying art! \n Would you like to visit my Tumblr portfolio ' + nameQuestionAnsw + '?');
-};
 
-if( seeMyArt.toLowerCase() === 'yes' || seeMyArt.toLowerCase() === 'y'){
-  console.log('seeMyArt is currently: ' + seeMyArt );
-  alert('Awesome! \n Here is a link to my Tumblr portfolio:  http://williamsportfolio.tumblr.com');
-  likeMyArt = prompt('So ' + nameQuestionAnsw + ', whataya think?\n did you like my Arts?');
-}else if( seeMyArt.toLowerCase() === 'no' || seeMyArt.toLowerCase() === 'n'){
-  console.log('seeMyArt is currently: ' + seeMyArt );
-  alert('Well you know what they say, \n If at first you dont fricassee, \n fry, fry a hen.');
-}else{
-  console.log('The User did not enter a valid \"yes\" or \"no\" answer. \n The variable seeMyArt currently holds the value: ' + seeMyArt);
-  alert(' Your input was invalid but I\'m pretty sure you want to see my portfolio:  http://williamsportfolio.tumblr.com');
-};
+var randmNum = '';
+var guessRandm = '';
 
-if( musicToo.toLowerCase() === 'yes' || musicToo.toLowerCase() === 'y'){
-  console.log('musicToo is currently: ' + musicToo);
-  listenToChance = prompt('Yep, music is the best. Would you like to listen to Chance the Rapper?');
-}else if( musicToo.toLowerCase() === 'no' || musicToo.toLowerCase() === 'n'){
-  console.log('musicToo is currently: ' + musicToo);
-  alert('You dont like art or music? I\'m so sorry\n You probably don\'t need to spend any more time one this particular web page.');
-}else{
-  console.log('The User did not enter a valid \"yes\" or \"no\" answer.\n The variable musicToo currently holds the value: ' + musicToo);
-  alert(' unfortunatly that was invalid input, why dont you try this:  http://williamsportfolio.tumblr.com');
-};
 
-if( likeMyArt.toLowerCase() === 'yes' || likeMyArt.toLowerCase() === 'y'){
-  console.log('likeMyArt is currently: ' + likeMyArt);
-  alert('Thanks ' + nameQuestionAnsw + '! You have immaculate taste');
-}else if( likeMyArt.toLowerCase() === 'no' || likeMyArt.toLowerCase () === 'n'){
-  console.log('likeMyArt is currently: ' + likeMyArt);
-  alert(' Ohhhh..... I don\'t know ' + nameQuestionAnsw + ', I think you might be wrong.');
-}else{
-  console.log('The User did not enter a valid \"yes\" or \"no\" answer.\n likeMyArt is currently: ' + likeMyArt);
-  alert('It\'s very common for people to be SO impressed by my artwork that they misspell the word y-e-s.');
-};
+var numCorrect = '0';
+var numWrong = '0';
+//var numOfGuesses = '0';
 
-if( listenToChance.toLowerCase() === 'yes' || listenToChance.toLowerCase() === 'y'){
-  console.log('listenToChance is currently: ' + listenToChance);
-  alert('Chance the Rapper posts all of his work for free on his Soundcloud page at: https://soundcloud.com/chancetherapper');
-}else if( listenToChance.toLowerCase() === 'no' || listenToChance.toLowerCase () === 'n'){
-  console.log('listenToChance is currently: ' + listenToChance);
-  alert('More of an OddNosdam sort of day?\n That\'s cool, I got you: https://soundcloud.com/odd-nosdam');
-}else{
-  console.log('The User did not enter a valid \"yes\" or \"no\" answer.\n listenToChance is currently: ' + listenToChance);
-  alert('look, ' + nameQuestionAnsw + ', by now you should have figured out how to answer \'yes\' or \'no\' correctly \n I am a little disapointed in you...');
-};
+//var score = '';
+
+
+
+//start with 5 yes or no QUESTIONS
+//populate ynquestions with yes or no QUESTIONS
+// this is not a loop because i do not want the user to ever have conrtoll of changing the questions or the answer key
+ynquestions.push(' Was Captain Harlock born on Mars?');
+ynquestions.push(' Has Captain Harlock ever been arrested?');
+ynquestions.push(' Do any other criminals have a longer criminal record  than Harlock on Venus?');
+ynquestions.push(' Is Captain Harlock a painter?');
+ynquestions.push(' Has Harlock\'s bounty ever exceeded $$300,000?');
+
+//populate answer key
+ynanswers.push('no');
+ynanswers.push('yes');
+ynanswers.push('no');
+ynanswers.push('yes');
+ynanswers.push('no');
+var qsremain = ynquestions.length;
+console.log('yes no question array: ' + ynquestions + '\n answer key array: ' + ynanswers + '\n qsremain: ' + qsremain );
+// QUESTION: i thought that console.log did not require a '+' opperand to concatinate the console output //
+
+for ( var i = 0 ; i < ynquestions.length ; i++ ){ //do this for as many times as there are questions
+  userguesses.push(prompt(ynquestions[i]).toLowerCase()); // toLowerCase to controll comparison
+  console.log('user guesses for answer question ' + i + ': ' + userguesses[i] );
+  if (userguesses[i] === 'yes' || userguesses[i] === 'y' ){
+    if (userguesses[i] === ynanswers[i]){
+      console.log('guess: ' + userguesses[i] + 'correct answer: ' + ynanswers[i]);
+      alert(' congrats! you got ' + ynquestions[i] + ' correct!');
+      numCorrect = numCorrect + 1; //incriment correcnt answer count
+      qsremain = qsremain - 1; //detriment  questions reamining counter
+    }
+    else{
+      alert('Nope! Youg got that one wrong!\n click OK and try the next question.');
+      numWrong = numWrong + 1;
+    }
+  }
+  else if (userguesses[i] === 'no' || userguesses[i] === 'n' ){
+    if (userguesses[i] === ynanswers[i]){
+      console.log('guess: ' + userguesses[i] + 'correct answer: ' + ynanswers[i]);
+      alert(' congrats! you got ' + ynquestions[i] + ' correct!');
+      numCorrect = numCorrect + 1; //incriment correcnt answer count
+      qsremain = qsremain - 1; //detriment  questions reamining counter
+    }
+    else{
+      alert('Nope! Youg got that one wrong!\n click OK and try the next question.');
+      numWrong = numWrong + 1;
+    }
+  }
+  else {
+    alert('You did not answer correctly; These are yes or no questions, \n which means that "yes" and "no" are the only vaild possible inputs. \n When your input is invalid you get the question wrong.');
+    console.log('user input is behaving unexpectedly. The usser entered' + userguesses[i] + ' as their guess.');
+    numCorrect = numCorrect + 1; //incriment correcnt answer count
+  }
+}/* ask for as many answers as there are questions and store the answer in userguesses array,
+ console out userguesses array for debugging, one at a time in the loop and inits entirety right after */
+console.log('userguesses: ' + userguesses);
+alert(' you got ' + numCorrect + ' questions correct, and ' + numWrong + ' questions wrong.');
+
+
+
+//guess a number game!
+randmNum = Math.floor(Math.random() * 10); //generates a random number between 0-9
+console.log('randmNum is ' + randmNum );
+alert('welcome to the Guess a Number Game! \n Im Thinking of a number between 0-10... \nYou\'ll get three attempts to guess.\n click OK when ready.') ;
+for ( var dtt = 0 ; dtt < 3; dtt++){ //do three times dtt //
+  guessRandm = parseInt(prompt('What is your guess?'));
+  if(guessRandm < randmNum){
+    console.log('guessRandm is: ' + guessRandm + ' and randmNum is: ' + randmNum );
+    alert('Sorry that\'s too low \n you have ' + (3 - (dtt + 1)) + ' guesses left');
+  }else if(guessRandm > randmNum){
+    alert('Sorry, that\'s too high \n you have ' + (3 - (dtt + 1)) + ' guesses left');
+  }else if (guessRandm === randmNum){
+    alert('You WIN! \n' + guessRandm + ' is correct!');
+    break;
+  }
+  else {
+    console.log('Unexpected Error. \n randmNum: ' + randmNum + '\n guessRandm: ' + guessRandm);
+  }
+}
+
+// question seven//
+var isCorrect = false;
+var possibleAnswers = [ 'mars', 'europa', 'titan', 'io' , 'iss' ];
+alert('There are FIVE celestial bodies in our solar system where the bountry for Harlock is so high \n in order to avoid having to payout, Harlock has his own official Sol Law Enforcement standing Shoot-On-Sight and Shoot-To-Kill order.\n This includes moons, planets, dwarf planets, asteroids, and artificial satelites, can you guess one of them? \n You get 5 guesses, click OK to start');
+
+var f = 0;  //you get 6 tries
+do{
+  f++;
+  var guessWHere = prompt('What is your guess? \n ex: Earth, Luna, Jupiter').toLowerCase();
+  for (var j = 0; j < possibleAnswers.length ; j++){
+    if ( guessWHere === possibleAnswers[j] ){
+      alert('THATS RIGHT! \n You Win!\n It took you' + f + 'tries');
+      isCorrect = true;
+      break;
+    } else{
+      console.log('position in array of answers: ' + j );
+    }
+    if (isCorrect === false){
+      alert('Sorry, try again \n you have ' + (6 - f) + ' tries remining');
+    }
+    if( f === 6){
+      isCorrect = true;
+    }
+  }
+}
+while ( isCorrect === flase);
