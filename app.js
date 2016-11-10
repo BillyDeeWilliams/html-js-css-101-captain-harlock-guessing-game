@@ -26,8 +26,7 @@ var numWrong = '0';
 
 //var score = '';
 
-var guessWHere = '';
-var possibleAnswers = [];
+
 
 //start with 5 yes or no QUESTIONS
 //populate ynquestions with yes or no QUESTIONS
@@ -45,7 +44,7 @@ ynanswers.push('no');
 ynanswers.push('yes');
 ynanswers.push('no');
 var qsremain = ynquestions.length;
-console.log('yes no question array: ' + ynquestions + '\n answer key array: ' + ynanswers + '\n qsremain: ' + qsreamin );
+console.log('yes no question array: ' + ynquestions + '\n answer key array: ' + ynanswers + '\n qsremain: ' + qsremain );
 // QUESTION: i thought that console.log did not require a '+' opperand to concatinate the console output //
 
 for ( var i = 0 ; i < ynquestions.length ; i++ ){ //do this for as many times as there are questions
@@ -54,7 +53,7 @@ for ( var i = 0 ; i < ynquestions.length ; i++ ){ //do this for as many times as
   if (userguesses[i].toLowerCase() === 'yes' || userguesses[i].toLowerCase() === 'y' ){
     if (userguesses[i] === ynanswers[i]){
       console.log('guess: ' + userguesses[i] + 'correct answer: ' + ynanswers[i]);
-      alert(' congrats! you got ' + question[i] + ' correct!');
+      alert(' congrats! you got ' + ynquestions[i] + ' correct!');
       numCorrect = numCorrect + 1; //incriment correcnt answer count
       qsremain = qsremain - 1; //detriment  questions reamining counter
     }
@@ -66,7 +65,7 @@ for ( var i = 0 ; i < ynquestions.length ; i++ ){ //do this for as many times as
   else if (userguesses[i].toLowerCase() === 'no' || userguesses[i].toLowerCase() === 'n' ){
     if (userguesses[i] === ynanswers[i]){
       console.log('guess: ' + userguesses[i] + 'correct answer: ' + ynanswers[i]);
-      alert(' congrats! you got ' + question[i] + ' correct!');
+      alert(' congrats! you got ' + ynquestions[i] + ' correct!');
       numCorrect = numCorrect + 1; //incriment correcnt answer count
       qsremain = qsremain - 1; //detriment  questions reamining counter
     }
@@ -83,6 +82,9 @@ for ( var i = 0 ; i < ynquestions.length ; i++ ){ //do this for as many times as
 }/* ask for as many answers as there are questions and store the answer in userguesses array,
  console out userguesses array for debugging, one at a time in the loop and inits entirety right after */
 console.log('userguesses: ' + userguesses);
+alert(' you got ' + numCorrect + ' questions correct, and ' + numWrong + ' questions wrong.');
+
+
 
 //guess a number game!
 randmNum = Math.floor(Math.random() * 10);
@@ -103,7 +105,21 @@ for ( var dtt = 0 ; dtt < 3; dtt++){ //do three times dtt //
   }
 }
 
+// question seven//
+var possibleAnswers = [ 'mars', 'europa', 'titan', 'io' , 'iss' ];
+alert('There are FIVE celestial bodies in our solar system where the bountry for Harlock is so high \n in order to avoid having to payout, Harlock has his own official Sol Law Enforcement standing Shoot-On-Sight and Shoot-To-Kill order.\n This includes moons, planets, dwarf planets, asteroids, and artificial satelites, can you guess one of them? \n You get 5 guesses, click OK to start');
 
-
-
-last question!!!
+for ( var f = 0 ; f < 5 ; j++ ){
+  //you get 5 tries
+  var guessWHere = prompt('What is your guess? \n ex: Earth, Luna, Jupiter').toLowerCase();
+  for (var j = 0; j < possibleAnswers.length ; j++){
+    if ( possibleAnswers[j] === guessWHere){
+      alert('THATS RIGHT! \n You Win!');
+      f = 6; // this should terminate the highest for loop
+    }
+    else{
+      console.log('j: ' + j + ' possibleAnswers[j]: ' + possibleAnswers[j] );
+      alert('Sorry, try again');
+    }
+  }
+}
