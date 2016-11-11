@@ -49,57 +49,67 @@ function numberGame () {
 numberGame ();
 
 
-//start with 5 yes or no QUESTIONS
-//populate ynquestions with yes or no QUESTIONS
+// start with 5 yes or no QUESTIONS
+// populate ynquestions with yes or no QUESTIONS
 // this is not a loop because i do not want the user to ever have conrtoll of changing the questions or the answer key
-// ynquestions.push(' Was Captain Harlock born on Mars?');
-// ynquestions.push(' Has Captain Harlock ever been arrested?');
-// ynquestions.push(' Do any other criminals have a longer criminal record  than Harlock on Venus?');
-// ynquestions.push(' Is Captain Harlock a painter?');
-// ynquestions.push(' Has Harlock\'s bounty ever exceeded $$300,000?');
-//
-// //populate answer key
-// ynanswers.push('no');
-// ynanswers.push('yes');
-// ynanswers.push('no');
-// ynanswers.push('yes');
-// ynanswers.push('no');
-// var qsremain = ynquestions.length;
-// console.log('yes no question array: ' + ynquestions + '\n answer key array: ' + ynanswers + '\n qsremain: ' + qsremain );
-// // QUESTION: i thought that console.log did not require a '+' opperand to concatinate the console output //
-//
-// for ( var i = 0 ; i < ynquestions.length ; i++ ){ //do this for as many times as there are questions
-//   userguesses.push(prompt(ynquestions[i]).toLowerCase()); // toLowerCase to controll comparison
-//   console.log('user guesses for answer question ' + i + ': ' + userguesses[i] );
-//   if (userguesses[i] === 'yes' || userguesses[i] === 'y' ){
-//     if (userguesses[i] === ynanswers[i]){
-//       console.log('guess: ' + userguesses[i] + 'correct answer: ' + ynanswers[i]);
-//       alert(' congrats! you got ' + ynquestions[i] + ' correct!');
-//       numCorrect = numCorrect + 1; //incriment correcnt answer count
-//       qsremain = qsremain - 1; //detriment  questions reamining counter
-//     }
-//     else{
-//       alert('Nope! Youg got that one wrong!\n click OK and try the next question.');
-//       numWrong = numWrong + 1;
-//     }
-//   }
-//   else if (userguesses[i] === 'no' || userguesses[i] === 'n' ){
-//     if (userguesses[i] === ynanswers[i]){
-//       console.log('guess: ' + userguesses[i] + 'correct answer: ' + ynanswers[i]);
-//       alert(' congrats! you got ' + ynquestions[i] + ' correct!');
-//       numCorrect = numCorrect + 1; //incriment correcnt answer count
-//       qsremain = qsremain - 1; //detriment  questions reamining counter
-//     }
-//     else{
-//       alert('Nope! Youg got that one wrong!\n click OK and try the next question.');
-//       numWrong = numWrong + 1;
-//     }
-//   }
-//   else {
-//     alert('You did not answer correctly; These are yes or no questions, \n which means that "yes" and "no" are the only vaild possible inputs. \n When your input is invalid you get the question wrong.');
-//     console.log('user input is behaving unexpectedly. The usser entered' + userguesses[i] + ' as their guess.');
-//     numCorrect = numCorrect + 1; //incriment correcnt answer count
-//   }
+
+ynquestions.push(' Was Captain Harlock born on Mars?');
+ynquestions.push(' Has Captain Harlock ever been arrested?');
+ynquestions.push(' Do any other criminals have a longer criminal record  than Harlock on Venus?');
+ynquestions.push(' Is Captain Harlock a painter?');
+ynquestions.push(' Has Harlock\'s bounty ever exceeded $$300,000?');
+
+//populate answer key
+ynanswers.push('no');
+ynanswers.push('yes');
+ynanswers.push('no');
+ynanswers.push('yes');
+ynanswers.push('no');
+
+
+var qsremain = ynquestions.length;
+console.log('yes no question array: ' + ynquestions + '\n answer key array: ' + ynanswers + '\n qsremain: ' + qsremain );
+var userguesses = [ ];
+
+
+function yNquestionsgen () {
+  for ( var i = 0 ; i < ynquestions.length ; i++ ){ //do this for as many times as there are questions
+    userguesses.push(prompt(ynquestions[i]).toLowerCase()); // toLowerCase to controll comparison
+    console.log('user guesses for answer question ' + i + ': ' + userguesses[i] );
+    if (userguesses[i] === 'yes' || userguesses[i] === 'y' ){
+      if (userguesses[i] === ynanswers[i]){
+        console.log('guess: ' + userguesses[i] + 'correct answer: ' + ynanswers[i]);
+        alert(' congrats! you got ' + ynquestions[i] + ' correct!');
+        numCorrect = numCorrect + 1; //incriment correcnt answer count
+        qsremain = qsremain - 1; //detriment  questions reamining counter
+      }
+      else{
+        alert('Nope! Youg got that one wrong!\n click OK and try the next question.');
+        numWrong = numWrong + 1;
+      }
+    }
+    else if (userguesses[i] === 'no' || userguesses[i] === 'n' ){
+      if (userguesses[i] === ynanswers[i]){
+        console.log('guess: ' + userguesses[i] + 'correct answer: ' + ynanswers[i]);
+        alert(' congrats! you got ' + ynquestions[i] + ' correct!');
+        numCorrect = numCorrect + 1; //incriment correcnt answer count
+        qsremain = qsremain - 1; //detriment  questions reamining counter
+      }
+      else{
+        alert('Nope! Youg got that one wrong!\n click OK and try the next question.');
+        numWrong = numWrong + 1;
+      }
+    }
+    else {
+      alert('You did not answer correctly; These are yes or no questions, \n which means that "yes" and "no" are the only vaild possible inputs. \n When your input is invalid you get the question wrong.');
+      console.log('user input is behaving unexpectedly. The usser entered' + userguesses[i] + ' as their guess.');
+      numCorrect = numCorrect + 1; //incriment correcnt answer count
+    }
+}
+yNquestionsgen ();
+// QUESTION: i thought that console.log did not require a '+' opperand to concatinate the console output //
+
+
 // }/* ask for as many answers as there are questions and store the answer in userguesses array,
 //  console out userguesses array for debugging, one at a time in the loop and inits entirety right after */
 // console.log('userguesses: ' + userguesses);
@@ -157,4 +167,4 @@ function questionSeven () {
 
 }
 
-questionSeven () ;
+questionSeven ();
