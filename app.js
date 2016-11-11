@@ -109,7 +109,7 @@ function numberGame () {
     }
   }
 }
-//numberGame (); //call function for guess a random number game
+numberGame (); //call function for guess a random number game
 
 
 // question seven//
