@@ -43,9 +43,12 @@ ynanswers.push('yes');
 ynanswers.push('no');
 ynanswers.push('yes');
 ynanswers.push('no');
+
 var qsremain = ynquestions.length;
 console.log('yes no question array: ' + ynquestions + '\n answer key array: ' + ynanswers + '\n qsremain: ' + qsremain );
 // QUESTION: i thought that console.log did not require a '+' opperand to concatinate the console output //
+
+//function ynQgen
 
 for ( var i = 0 ; i < ynquestions.length ; i++ ){ //do this for as many times as there are questions
   userguesses.push(prompt(ynquestions[i]).toLowerCase()); // toLowerCase to controll comparison
