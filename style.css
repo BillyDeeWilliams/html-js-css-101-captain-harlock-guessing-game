@@ -1,16 +1,17 @@
 #left{
- display: block;
+ display: block-inline;
  position: absolute;
  background-color: white;
- width: 40%;
+ width: 30%;
  height: 100%;
  padding-top: 20%;
 }
 
 #right{
+ float: right;
  display: block;
  background-color: black;
- padding-top: 20%;
+ padding-top: 20px;
  width: 60%;
  height: 100%;
  font-family: impact;
@@ -18,19 +19,17 @@
 }
 
 
-#wrapper{
-
-
-}
-
 #harlock{
- z-index: 10;
+  height:100%;
  position: fixed ;
- top: -1em;
- left: -20em;
- float: left;
+ top: 2em;
+ left: -13em;
 
  }
+header{
+ background-color: black;
+ height: 50px;
+}
 
 body {
  background-color: black;
@@ -43,12 +42,38 @@ main {
  margin: 0 auto;
 
 }
-
-
-p {
+#wrapper{
+  height: 100%;
 }
+h2{
+  text-align:center;
+}
+h4{
+  text-align:center;
+  padding: 0px;
+}
+p {
+  text-align:center;
+  line-height:1.5;
+}
+ol li{
 
+  margin:5px;
+}
+ol{
+  line-height:1.5;
+  margin-left: 35px;
+}
 /* following adopted from http://www.w3schools.com/html/tryit.asp?filename=tryhtml_lists_menu */
+nav{
+  float: right;
+ display: block;
+ background-color: black;
+ width: 69.7%;
+ height: 100%;
+ font-family: impact;
+ color: white;
+}
 nav ul {
    list-style-type: none;
    margin: 0;
@@ -58,7 +83,7 @@ nav ul {
 }
 
 nav li {
-   float: right;
+   float: left;
 }
 
 nav li a {

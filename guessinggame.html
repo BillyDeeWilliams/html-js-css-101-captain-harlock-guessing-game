@@ -20,9 +20,31 @@
       </nav>
     </div>
   </header>
-<main>
 
-</main>
-   <script src = app.js></script>
+    <div id = "wrapper" >
+
+  <div id = "left">
+    <img src= "assets/images/harlock.png"/ id = "harlock">
+  </div> <!-- close left div -->
+
+  <div id = "right">
+  </div> <!-- right div close -->
+
+  </div> <!-- wrapper close -->
+
+ <!-- the following delay script execution until after page load was borrowed from:
+ https://varvy.com/pagespeed/defer-loading-javascript.html -->
+  <script type="text/javascript">
+  function downloadJSAtOnload() {
+  var element = document.createElement("script");
+  element.src = "app.js";
+  document.body.appendChild(element);
+  }
+  if (window.addEventListener)
+  window.addEventListener("load", downloadJSAtOnload, false);
+  else if (window.attachEvent)
+  window.attachEvent("onload", downloadJSAtOnload);
+  else window.onload = downloadJSAtOnload;
+  </script>
 </body>
 </html>
